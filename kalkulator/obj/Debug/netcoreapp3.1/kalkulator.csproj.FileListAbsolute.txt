@@ -1,0 +1,17 @@
+D:\dotnet\kalkulator\kalkulator\kalkulator\bin\Debug\netcoreapp3.1\kalkulator.exe
+D:\dotnet\kalkulator\kalkulator\kalkulator\bin\Debug\netcoreapp3.1\kalkulator.deps.json
+D:\dotnet\kalkulator\kalkulator\kalkulator\bin\Debug\netcoreapp3.1\kalkulator.runtimeconfig.json
+D:\dotnet\kalkulator\kalkulator\kalkulator\bin\Debug\netcoreapp3.1\kalkulator.runtimeconfig.dev.json
+D:\dotnet\kalkulator\kalkulator\kalkulator\bin\Debug\netcoreapp3.1\kalkulator.dll
+D:\dotnet\kalkulator\kalkulator\kalkulator\bin\Debug\netcoreapp3.1\kalkulator.pdb
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator.csprojAssemblyReference.cache
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\App.g.cs
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator_MarkupCompile.cache
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator_MarkupCompile.lref
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\MainWindow.baml
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator.g.resources
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator.AssemblyInfoInputs.cache
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator.AssemblyInfo.cs
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator.dll
+D:\dotnet\kalkulator\kalkulator\kalkulator\obj\Debug\netcoreapp3.1\kalkulator.pdb

@@ -1,0 +1,53 @@
+﻿<Window x:Class="kalkulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kalkulator"
+        mc:Ignorable="d"
+        Title="kalkulator" Height="450" Width="300" MinHeight="450" MinWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" FontSize="20" Name="lpamiec"/>
+        <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Padding="10, 0, 10, 0" Text="0" FontSize="30" Name="tbwynik" PreviewTextInput="NumberValidationTextBox" KeyDown="TBKeyDown" KeyUp="TBKeyUp"/>
+        <Button Name="BackButton" Grid.Column="0" Grid.Row="2" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BackClick">&#x2190;</Button>
+        <Button Name="SevenButton" Grid.Column="0" Grid.Row="3" Content="7" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="SevenClick"></Button>
+        <Button Name="FourButton" Grid.Column="0" Grid.Row="4" Content="4" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="FourClick"></Button>
+        <Button Name="OneButton" Grid.Column="0" Grid.Row="5" Content="1" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="OneClick"></Button>
+        <Button Name="ZeroButton" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Content="0" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ZeroClick"></Button>
+        <Button Name="CEButton" Grid.Column="1" Grid.Row="2" Content="CE" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="CEClick"></Button>
+        <Button Name="EightButton" Grid.Column="1" Grid.Row="3" Content="8" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="EightClick"></Button>
+        <Button Name="FiveButton" Grid.Column="1" Grid.Row="4" Content="5" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="FiveClick"></Button>
+        <Button Name="TwoButton" Grid.Column="1" Grid.Row="5" Content="2" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="TwoClick"></Button>
+        <Button Name="CButton" Grid.Column="2" Grid.Row="2" Content="C" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="CClick"></Button>
+        <Button Name="NineButton" Grid.Column="2" Grid.Row="3" Content="9" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NineClick"></Button>
+        <Button Name="SixButton" Grid.Column="2" Grid.Row="4" Content="6" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="SixClick"></Button>
+        <Button Name="ThreeButton" Grid.Column="2" Grid.Row="5" Content="3" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ThreeClick"></Button>
+        <Button Name="DotButton" Grid.Column="2" Grid.Row="6" Content="," FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="DotClick"></Button>
+        <Button Name="PlusMinusButton" Grid.Column="3" Grid.Row="2" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="PlusMinusClick">&#177;</Button>
+        <Button Name="DivideButton" Grid.Column="3" Grid.Row="3" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="DivideClick">&#xf7;</Button>
+        <Button Name="MultiplyButton" Grid.Column="3" Grid.Row="4" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="MultiplyClick">&#xd7;</Button>
+        <Button Name="MinusButton" Grid.Column="3" Grid.Row="5" Content="-" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="MinusClick"></Button>
+        <Button Name="PlusButton" Grid.Column="3" Grid.Row="6" Content="+" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="PlusClick"></Button>
+        <Button Name="SqrtButton" Grid.Column="4" Grid.Row="2" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="SqrtClick">&#x221a;</Button>
+        <Button Name="PercentButton" Grid.Column="4" Grid.Row="3" Content="%" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="PercentClick"></Button>
+        <Button Name="OneByXButton" Grid.Column="4" Grid.Row="4" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="OneByXClick">1&#xf7;x</Button>
+        <Button Name="EqualsButton" Grid.Column="4" Grid.Row="5" FontSize="30" Content="=" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="EqualsClick"></Button>
+    </Grid>
+
+</Window>
