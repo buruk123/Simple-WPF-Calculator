@@ -9,15 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Xps;
 
 namespace kalkulator
 {
@@ -68,15 +60,15 @@ namespace kalkulator
             if (!shouldBlock && type == "divide")
             {
                 ChangeFontOfTB(20);
-                lpamiec.Content = "Nie wolno dzielić przez zero";
-                tbwynik.Text = "Naciśnij C, aby kontynuować";
+                lpamiec.Content = "Cant divide by 0";
+                tbwynik.Text = "C to continue";
             }
 
             if (!shouldBlock && type == "sqrt")
             {
                 ChangeFontOfTB(20);
-                lpamiec.Content = "Nieprawidłowe dane wejściowe";
-                tbwynik.Text = "Naciśnij C, aby kontynuować";
+                lpamiec.Content = "Wrong input data";
+                tbwynik.Text = "C to continue";
             }
             ZeroButton.IsEnabled = shouldBlock;
             OneButton.IsEnabled = shouldBlock;
@@ -209,16 +201,6 @@ namespace kalkulator
 
         private void TBKeyDown(object sender, KeyEventArgs e)
         {
-            // if (!isPlusSign && tbwynik.Text.Contains("0") && tbwynik.Text.Length == 2)
-            // {
-            //     tbwynik.Text = "-";
-            //     tbwynik.Select(tbwynik.Text.Length, 0);
-            // }
-            // if (tbwynik.Text == "0")
-            // {
-            //     tbwynik.Text = "";
-            // }
-            
             string labelValue;
             double firstValue;
             double secondValue;
@@ -240,6 +222,8 @@ namespace kalkulator
                     {
                         return;
                     }
+
+                    if (!isPlusSign) tbwynik.Select(tbwynik.Text.Length, 0);
                     operation = false;
                     break;
                 case Key.Add:
@@ -324,12 +308,20 @@ namespace kalkulator
                     if (lpamiec.Content == null) return;
                     char sign = lpamiec.Content.ToString()[^1];
                     labelValue = lpamiec.Content.ToString().Remove(lpamiec.Content.ToString().Length - 1);
-                    // if (labelValue.Contains("1" + "\u00F7" + "x")) return;
                     firstValue = ChangeDotToCommaAndParseToDouble(labelValue);
                     secondValue = ChangeDotToCommaAndParseToDouble(tbwynik.Text);
-                    tbwynik.Text = ResultOfOperation(firstValue, secondValue, sign, true);
-                    lpamiec.Content = null;
-                    tbwynik.Select(tbwynik.Text.Length, 0);
+                    if (secondValue == 0)
+                    {
+                        CheckToBlockButtons(false, "divide");
+                    }
+                    else
+                    {
+                        tbwynik.Text = ResultOfOperation(firstValue, secondValue, sign, true);
+                        lpamiec.Content = null;
+                        tbwynik.Select(tbwynik.Text.Length, 0);
+                        
+                    }
+                    isPlusSign = true;
                     break;
                 case Key.Decimal:
                     if (tbwynik.Text.Contains(",")) return;
@@ -338,8 +330,7 @@ namespace kalkulator
             }
         }
 
-        private void TBKeyUp(object sender, KeyEventArgs e)
-        {
+        private void TBKeyUp(object sender, KeyEventArgs e) {
             if (e.Key == Key.Back || e.Key == Key.Delete)
             {
                 if (!isPlusSign && tbwynik.Text.Length == 0)
@@ -355,7 +346,7 @@ namespace kalkulator
             }
 
             CutStringOnLimitBroke(CheckForTBLength());
-            tbwynik.Select(tbwynik.Text.Length, 0);
+            // tbwynik.Select(tbwynik.Text.Length, 0);
             
         }
 
@@ -497,23 +488,24 @@ namespace kalkulator
                 CheckToBlockButtons(false, "sqrt");
                 return;
             }
-
-            tbwynik.Text = Math.Sqrt(wynik).ToString(CultureInfo.InvariantCulture);
+            var wynikk = ChangeDotToCommaAndParseToDouble((Math.Sqrt(wynik).ToString(CultureInfo.InvariantCulture)));
+            tbwynik.Text = wynikk.ToString();
             CutStringOnLimitBroke(CheckForTBLength());
         }
 
         private void PercentClick(object sender, RoutedEventArgs e)
         {
             var wynik = ChangeDotToCommaAndParseToDouble(tbwynik.Text);
-            // lpamiec.Content = "\u0025" + "(" + tbwynik.Text + ")";
-            tbwynik.Text = (wynik / 100).ToString(CultureInfo.InvariantCulture);
+            var wynikk = ChangeDotToCommaAndParseToDouble((wynik / 100).ToString(CultureInfo.InvariantCulture));
+            tbwynik.Text = wynikk.ToString();
             CutStringOnLimitBroke(CheckForTBLength());
         }
 
         private void OneByXClick(object sender, RoutedEventArgs e)
         {
             var wynik = ChangeDotToCommaAndParseToDouble(tbwynik.Text);
-            tbwynik.Text = (1 / wynik).ToString(CultureInfo.InvariantCulture);
+            var wynikk = ChangeDotToCommaAndParseToDouble((1 / wynik).ToString(CultureInfo.InvariantCulture));
+            tbwynik.Text = wynikk.ToString();
             CutStringOnLimitBroke(CheckForTBLength());
 
         }
@@ -610,11 +602,19 @@ namespace kalkulator
             if (lpamiec.Content == null) return;
             char sign = lpamiec.Content.ToString()[^1];
             string labelValue = lpamiec.Content.ToString().Remove(lpamiec.Content.ToString().Length - 1);
-            // if (labelValue.Contains("1" + "\u00F7" + "x")) return;
             double firstValue = ChangeDotToCommaAndParseToDouble(labelValue);
             double secondValue = ChangeDotToCommaAndParseToDouble(tbwynik.Text);
-            tbwynik.Text = ResultOfOperation(firstValue, secondValue, sign, true);
-            lpamiec.Content = null;
+            if (secondValue == 0)
+            {
+                CheckToBlockButtons(false, "divide");
+            }
+            else
+            {
+                tbwynik.Text = ResultOfOperation(firstValue, secondValue, sign, true);
+                lpamiec.Content = null;
+                tbwynik.Select(tbwynik.Text.Length, 0);
+            }
+            isPlusSign = true;
         }
     }
 }
